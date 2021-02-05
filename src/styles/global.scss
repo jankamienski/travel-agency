@@ -20,4 +20,28 @@ a, a:hover, a:visited {
   text-decoration: none;
 }
 
+.switchWrapper {
+  position: relative;
+
+  > :first-child ~ * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation-duration: 1s;
+    animation-name: mymove;
+  }
+}
+
+@keyframes mymove {
+  from {
+    margin-top: 200px;
+  }
+
+  to {
+  margin-top: 0;
+  }
+}
+
+
 @import "./typography.scss";

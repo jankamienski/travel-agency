@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './OrderOption.scss';
+//import PropTypes from 'prop-types';
 
 const OrderOptionText = (id) => (
   <div className={styles.component}>
@@ -10,5 +11,9 @@ const OrderOptionText = (id) => (
     />
   </div>
 );
+
+/*OrderOptionText.propTypes ={
+  id: PropTypes.node,
+};*/
 
 export default OrderOptionText;

@@ -18,16 +18,12 @@ const OrderOptionIcons = ({values, setOptionValue, currentValue, required}) => (
         key={value.id}
         onClick={() => setOptionValue(value.id)}
       >
-        <Icon name={value.Icon}/>
-        Icon
+        <Icon name={value.icon}/>
         {formatPrice(value.price)}
       </div>
     ))}
   </div>
 );
-
-
-
 
 OrderOptionIcons.propTypes ={
   values: PropTypes.array,

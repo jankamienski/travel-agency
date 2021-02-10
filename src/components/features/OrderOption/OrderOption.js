@@ -5,13 +5,14 @@ import OrderOptionNumber from './OrderOptionNumber.js';
 import OrderOptionDropdown from './OrderOptionDropdown.js';
 import OrderOptionCheckboxes from './OrderOptionCheckboxes.js';
 //import PropTypes from 'prop-types';
-
+import OrderOptionText from './OrderOptionText.js';
 
 const optionTypes = {
   dropdown: OrderOptionDropdown,
   icons: OrderOptionIcons,
   checkboxes: OrderOptionCheckboxes,
   number: OrderOptionNumber,
+  text: OrderOptionText,
 };
 
 const OrderOption = ({name, type, id, setOrderOption, ...otherProps}) => {
@@ -33,6 +34,8 @@ const OrderOption = ({name, type, id, setOrderOption, ...otherProps}) => {
 /*OrderOption.propTypes ={
   name: PropTypes.string,
   type: PropTypes.node,
+  id: PropTypes.node,
+  setOrderOption: PropTypes.func,
 };*/
 
 export default OrderOption;

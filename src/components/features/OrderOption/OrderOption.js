@@ -14,7 +14,7 @@ const optionTypes = {
   checkboxes: OrderOptionCheckboxes,
   number: OrderOptionNumber,
   text: OrderOptionText,
-  ate: OrderOptionDate,
+  date: OrderOptionDate,
 };
 
 const OrderOption = ({name, type, id, setOrderOption, ...otherProps}) => {

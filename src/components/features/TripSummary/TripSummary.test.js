@@ -43,13 +43,13 @@ describe ('Component TripSummary', () => {
 
   it('shoud render correct props name, cost and days', () => {
     const expectedName = 'text';
-    const expectedCost = '$ 10';
+    const expectedCost = '$ 10';  //definiuje zmienna
     const expectedDays = 1;
     //const expectedId = 'abc';
     //const expectedImg = 'image.jpg';
     const component = shallow(<TripSummary
       name = {expectedName}
-      cost = {expectedCost}
+      cost = {expectedCost}  // przekazuje propsy do wyrenderowanai kompoenntu
       days = {expectedDays}
       id = ''
       image = ''
@@ -60,8 +60,10 @@ describe ('Component TripSummary', () => {
     //expect (component.find('.details').text()).toEqual(expectedCost); //jaki tag?
     //expect (component.find('.details').text()).toEqual(expectedId);  // jaki tag?
     //expect (component.find('.img').text()).toEqual(expectedImg);  
-    expect (component.find('.details span').first().text()).toEqual(`${expectedDays} days`);
-    expect (component.find('.details span').last().text()).toEqual(`from ${expectedCost}`);
+    //expect (component.find('.details span').first().text()).toEqual(`${expectedDays} days`);
+    //expect (component.find('.details span').last().text()).toEqual(`from ${expectedCost}`);
+
+    expect (component.find('.details').text()).toEqual(`${expectedDays} daysfrom ${expectedCost}`);   // tutja szukam danego selektora   /.. find to szukany selektor ..  .tdxt znosi znaleziony sleekgor do twartosci tekstowej..   a toEqual  .. porownuje moja oczekiwana wartosc z tym co zrzucila metyoda text
   });
 
   it('should throw error without required props', () => {

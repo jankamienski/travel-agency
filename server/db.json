@@ -13,6 +13,40 @@
       "start-date": "",
       "totalCost": "$180,533",
       "id": 1
+    },
+    {
+      "car-rental": "full",
+      "accommodation": "hotel",
+      "features": [
+        "all-inclusive",
+        "pool"
+      ],
+      "adults": 2,
+      "children": "2",
+      "name": "",
+      "contact": "",
+      "start-date": "",
+      "totalCost": "$158,042",
+      "tripName": "Pleasant travel in cool Turkey",
+      "tripId": "5cc1d10130dfa407e2e54e20",
+      "id": 2
+    },
+    {
+      "car-rental": "full",
+      "accommodation": "hotel",
+      "features": [
+        "all-inclusive",
+        "pool"
+      ],
+      "adults": 2,
+      "children": "2",
+      "name": "",
+      "contact": "",
+      "start-date": "",
+      "totalCost": "$158,042",
+      "tripName": "Pleasant travel in cool Turkey",
+      "tripId": "5cc1d10130dfa407e2e54e20",
+      "id": 3
     }
   ]
 }

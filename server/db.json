@@ -47,6 +47,22 @@
       "tripName": "Pleasant travel in cool Turkey",
       "tripId": "5cc1d10130dfa407e2e54e20",
       "id": 3
+    },
+    {
+      "car-rental": "suv",
+      "accommodation": "hotel",
+      "features": [
+        "kitchen"
+      ],
+      "adults": 2,
+      "children": 0,
+      "name": "dfgf",
+      "contact": "gdfg",
+      "start-date": "",
+      "totalCost": "$60,038",
+      "tripName": "Pleasant trek in outstanding Togo",
+      "tripId": "5cc1d10181a30e85c8d9ad4a",
+      "id": 4
     }
   ]
 }

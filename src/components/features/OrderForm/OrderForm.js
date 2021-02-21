@@ -12,37 +12,38 @@ import settings from '../../../data/settings.js';
 
 const sendOrder = (options, tripCost, tripName, tripId) => {
   
-  if(options.name!='' && options.contact!=''){
-    const totalCost = formatPrice(calculateTotal(tripCost, options, tripName, tripId));
-
-    const payload = {
-      ...options,
-      totalCost,
-      tripName,
-      tripId,
-    };
-
-    const url = settings.db.url + '/' + settings.db.endpoint.orders;
-
-    const fetchOptions = {
-      cache: 'no-cache',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    };
-
-    fetch(url, fetchOptions)
-      .then(function(response){
-        return response.json();
-      }).then(function(parsedResponse){
-        console.log('parsedResponse', parsedResponse);
-      });
-  }    
-  else{
+  if(!options.name || !options.contact){
     alert('Please fill your details');
-  } 
+    return;
+  }  
+  const totalCost = formatPrice(calculateTotal(tripCost, options, tripName, tripId));
+
+  const payload = {
+    ...options,
+    totalCost,
+    tripName,
+    tripId,
+  };
+
+  const url = settings.db.url + '/' + settings.db.endpoint.orders;
+
+  const fetchOptions = {
+    cache: 'no-cache',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  };
+
+  fetch(url, fetchOptions)
+    .then(function(response){
+      return response.json();
+    }).then(function(parsedResponse){
+      console.log('parsedResponse', parsedResponse);
+    });
+   
+  
 };
 
 const OrderForm = ({tripCost, options, setOrderOption, tripName, tripId}) => (

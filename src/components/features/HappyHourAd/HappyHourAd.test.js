@@ -64,6 +64,7 @@ describe('Component HappyHourAd with mocked Date', () => {
   checkDescriptionAtTime('13:00:00', 23 * 60 * 60 + '');
 });
 
+
 const checkDescriptionAfterTime = (time, delaySeconds, expectedDescription) => {
   it(`should show correct value ${delaySeconds} seconds after ${time}`, () => {
     jest.useFakeTimers();

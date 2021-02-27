@@ -7,19 +7,20 @@ const select = {
 };
 
 const mockProps = {
-  daysDescription: 'XXX days to summer',
+  daysDescription: '',
 };
 
-beforeAll(() => {
-  const utilsModule = jest.requireActual('../../../utils/formatDays.js');
-  utilsModule.formatDays = jest.fn(days => days);
-});
+//beforeAll(() => {
+//  const utilsModule = jest.requireActual('../../../utils/formatDays.js');
+//  utilsModule.formatDays = jest.fn(days => days);
+//});
 
 describe('Component DaysToSummer', () => {
   it('should render without crashing', () => {
     const component = shallow (<DaysToSummer />);
     expect(component).toBeTruthy();
   });
+
 
   it('should render description', () => {
     const component = shallow (<DaysToSummer />);
@@ -56,9 +57,9 @@ const checkDaysAtDate = (date, expectedDescription) => {
 };
 
 describe('Component DaysToSummer with mocked Date', () => {
-  checkDaysAtDate('2019-06-20', '1');
-  checkDaysAtDate('2019-12-22', '182');
-  checkDaysAtDate('2018-10-04', '260');
+  checkDaysAtDate('2021-06-20', '1 day to summer');
+  checkDaysAtDate('2021-12-22', '184 days to summer');
+  checkDaysAtDate('2021-10-04', '105 days to summer');
 });
 
 //czy ma poprawne klasy names

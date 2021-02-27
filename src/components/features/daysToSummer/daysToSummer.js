@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './DaysToSummer.scss';
 import PropTypes from 'prop-types';
 
+
 class DaysToSummer extends React.Component {
   constructor(){
     super();
@@ -11,12 +12,12 @@ class DaysToSummer extends React.Component {
     24 * 60 * 60 * 1000   // one day
     );
   }
-
+  
   getCountdownDays() {
     const currentDate = new Date();
     const singleDay = 24 * 60 * 60 * 1000;
     const nextSummerTime = new Date(Date.UTC(currentDate.getUTCFullYear(), 5, 21, 0, 0, 0));
-    console.log(currentDate.getUTCDate());
+  
 
     // 5 == june
     
@@ -38,7 +39,7 @@ class DaysToSummer extends React.Component {
 
     return (
       <div className={styles.component}>
-        <h3 className={styles.title}>{this.getCountdownDays()}</h3>
+        <h3 className={styles.daysDescription}>{this.getCountdownDays()}</h3>
       </div>
     );
   }

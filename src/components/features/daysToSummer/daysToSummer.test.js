@@ -1,7 +1,6 @@
-/*import React from 'react';
+import React from 'react';
 import {shallow} from 'enzyme';
 import DaysToSummer from './DaysToSummer';
-
 
 const select = {
   daysDescription: '.daysDescription',
@@ -10,6 +9,11 @@ const select = {
 const mockProps = {
   daysDescription: 'XXX days to summer',
 };
+
+beforeAll(() => {
+  const utilsModule = jest.requireActual('../../../utils/formatDays.js');
+  utilsModule.formatDays = jest.fn(days => days);
+});
 
 describe('Component DaysToSummer', () => {
   it('should render without crashing', () => {
@@ -22,13 +26,44 @@ describe('Component DaysToSummer', () => {
     expect(component.exists(select.daysDescription)).toEqual(true);
   });
 
-  //czy ma poprawne klasy names
-  // shold render headings
-  
-
-  // check description at date  czy sumemr time is = ...xxx
-  // czy jak pdoam date  xx  czy dajac iles to bede mia ltyle days to summer
-
 });
 
-*/
+const trueDate = Date;
+const mockDate = customDate => class extends Date {
+  constructor(...args) {
+    if(args.length) {
+      super(...args);
+    } else {
+      super(customDate);
+    }
+    return this;
+  }
+  static now(){
+    return (new Date(customDate)).getTime();
+  }
+};
+
+const checkDaysAtDate = (date, expectedDescription) => {
+  it(`should show correct at ${date}`, () => {
+    global.Date = mockDate(`${date}T00:00:00.135Z`);
+
+    const component = shallow(<DaysToSummer {...mockProps} />);
+    const renderedTime = component.find(select.daysDescription).text();
+    expect(renderedTime).toEqual(expectedDescription);
+
+    global.Date = trueDate;
+  });
+};
+
+describe('Component DaysToSummer with mocked Date', () => {
+  checkDaysAtDate('2019-06-20', '1');
+  checkDaysAtDate('2019-12-22', '182');
+  checkDaysAtDate('2018-10-04', '260');
+});
+
+//czy ma poprawne klasy names
+// shold render headings
+  
+
+// check description at date  czy sumemr time is = ...xxx
+// czy jak pdoam date  xx  czy dajac iles to bede mia ltyle days to summer
